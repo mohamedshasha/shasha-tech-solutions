@@ -222,6 +222,8 @@ input:not(:placeholder-shown) + label.placeholder {
   font-family: "Tajawal", "Cairo", sans-serif;
   font-weight: 700;
   font-style: normal;
+  font-size: 26px;
+  color: white; /* كان مكتوباً داخل الوسم مباشرة في النسخة القديمة */
   background-color: var(--orange);
   border-radius: 20px;
   padding: 6px 16px;
@@ -232,7 +234,9 @@ input:not(:placeholder-shown) + label.placeholder {
   font-family: "Cairo", sans-serif;
   font-weight: bold;
   font-style: normal;
+  font-size: 22px;
   letter-spacing: 2px;
+  color: white; /* كان مكتوباً داخل الوسم مباشرة في النسخة القديمة */
   background-color: var(--navy);
   border-radius: 20px;
   padding: 6px 18px;
@@ -474,4 +478,60 @@ input:focus-visible {
   font-weight: bold;
   color: var(--orange-dark);
   text-decoration: underline;
+}
+
+/* ===== زر تبديل اللغة ===== */
+.lang-toggle {
+  position: absolute;
+  top: 10px;
+  inset-inline-start: 10px; /* يمين في العربية، يسار في الإنجليزية */
+  width: auto;
+  min-width: 46px;
+  margin: 0;
+  padding: 6px 12px;
+  font-size: 14px;
+  font-weight: bold;
+  color: var(--navy);
+  background: #f4f7fb;
+  border: 2px solid var(--navy);
+  border-radius: 20px;
+  cursor: pointer;
+  z-index: 5;
+}
+
+.lang-toggle:hover {
+  color: white;
+  background: var(--navy);
+}
+
+/* ===== تعديلات الاتجاه للإنجليزية ===== */
+[dir="ltr"] body {
+  font-family: "Tajawal", "Cairo", sans-serif;
+}
+
+[dir="ltr"] label {
+  text-align: left;
+}
+
+[dir="ltr"] .input-container {
+  direction: ltr;
+}
+
+[dir="ltr"] input,
+[dir="ltr"] #fallbackText {
+  text-align: left;
+}
+
+[dir="ltr"] label.placeholder {
+  right: auto;
+  left: 12px;
+}
+
+[dir="ltr"] .teaser {
+  border-right: none;
+  border-left: 5px solid var(--orange);
+}
+
+[dir="ltr"] .moving-text {
+  letter-spacing: 1px;
 }
