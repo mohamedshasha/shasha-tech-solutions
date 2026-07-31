@@ -442,17 +442,14 @@ function sendWhatsAppNotification(details) {
 
 /* ================= التشغيل ================= */
 document.addEventListener("DOMContentLoaded", function () {
-  // اللغة المحفوظة، وإلا لغة المتصفح، وإلا العربية
+  // العربية هي الافتراضية دائماً — ولا تتغير إلا إذا بدّلها العميل بنفسه
   let saved = null;
   try {
     saved = localStorage.getItem("lang");
   } catch (e) {
     saved = null;
   }
-  let browser = (navigator.language || "ar").toLowerCase().startsWith("ar")
-    ? "ar"
-    : "en";
-  applyLang(saved || browser);
+  applyLang(saved || "ar");
 
   document.getElementById("langToggle").addEventListener("click", () => {
     applyLang(currentLang === "ar" ? "en" : "ar");
