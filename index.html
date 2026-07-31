@@ -10,10 +10,12 @@
     />
 
     <!-- ========= معاينة الرابط عند المشاركة =========
-         مهم: بعد رفع الموقع، استبدل https://YOUR-DOMAIN.com
-         بعنوان موقعك الحقيقي في السطور الثلاثة أدناه -->
+         العناوين مضبوطة على رابط GitHub Pages الحالي.
+         إذا ربطت دومين خاص لاحقاً، غيّر العنوان في
+         og:url و og:image و twitter:image -->
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="ar_AR" />
+    <meta property="og:locale:alternate" content="en_US" />
     <meta property="og:site_name" content="شاشا تِك سوليوشنز" />
     <meta
       property="og:title"
@@ -23,8 +25,14 @@
       property="og:description"
       content="هويات بصرية كاملة • أنظمة إدارة ومحاسبة • مواقع وتطبيقات موبايل. أرسل طلبك في دقيقة واحدة."
     />
-    <meta property="og:url" content="https://YOUR-DOMAIN.com/" />
-    <meta property="og:image" content="https://YOUR-DOMAIN.com/preview.png" />
+    <meta
+      property="og:url"
+      content="https://mohamedshasha.github.io/shasha-tech-solutions/"
+    />
+    <meta
+      property="og:image"
+      content="https://mohamedshasha.github.io/shasha-tech-solutions/preview.png"
+    />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
@@ -36,10 +44,14 @@
       name="twitter:description"
       content="هويات بصرية كاملة • أنظمة إدارة ومحاسبة • مواقع وتطبيقات موبايل."
     />
-    <meta name="twitter:image" content="https://YOUR-DOMAIN.com/preview.png" />
+    <meta
+      name="twitter:image"
+      content="https://mohamedshasha.github.io/shasha-tech-solutions/preview.png"
+    />
 
     <link rel="icon" href="favicon.png" type="image/png" />
     <link rel="apple-touch-icon" href="favicon.png" />
+
     <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -48,24 +60,26 @@
       rel="stylesheet"
     />
 
-    <title>طلب خدمة - شاشا تِك سوليوشنز</title>
+    <title data-i18n="doc.title">طلب خدمة - شاشا تِك سوليوشنز</title>
   </head>
   <body>
     <div class="container">
-      <img src="logo.png" alt="شعار شاشا تِك سوليوشنز" class="logo" />
-      <br />
-      <p
-        class="moving-text"
-        style="color: white; font-size: 22px; font-weight: bold"
+      <button
+        type="button"
+        id="langToggle"
+        class="lang-toggle"
+        aria-label="Switch language"
       >
-        SHASHA TECH SOLUTIONS
-      </p>
-      <br />
-      <h2 class="pulse" style="color: white; font-size: 26px">
-        "فكرة تُصمَّم ،،، ونظام يُبنى"
-      </h2>
+        EN
+      </button>
 
-      <p class="trust-line">
+      <img src="logo.png" alt="Shasha Tech Solutions" class="logo" />
+      <br />
+      <p class="moving-text">SHASHA TECH SOLUTIONS</p>
+      <br />
+      <h2 class="pulse" data-i18n="tagline">"فكرة تُصمَّم ،،، ونظام يُبنى"</h2>
+
+      <p class="trust-line" data-i18n-html="trust">
         أكثر من <strong>9 أنظمة</strong> تعمل الآن لدى عملائنا — وهويات بصرية
         كاملة سلّمناها لشركات ومطاعم ومدارس وصيدليات
       </p>
@@ -79,132 +93,161 @@
         <span>PhoneHub</span>
       </div>
 
-      <label for="service">الخدمة المطلوبة:</label>
+      <label for="service" data-i18n="label.service">الخدمة المطلوبة:</label>
       <select id="service" onchange="updateService()">
-        <optgroup label="الهوية البصرية والدعاية">
-          <option value="logo">تصميم شعار</option>
-          <option value="identity">هوية بصرية كاملة</option>
-          <option value="rebrand">تطوير هوية قائمة</option>
-          <option value="print">تصميم مطبوعات ودعاية</option>
-          <option value="social">إدارة حسابات التواصل الاجتماعي (شهرياً)</option>
-          <option value="motion">مونتاج وموشن جرافيك</option>
-          <option value="signage">لوحات ولافتات دعائية</option>
+        <optgroup data-i18n-label="grp.brand" label="الهوية البصرية والدعاية">
+          <option value="logo" data-i18n="s.logo">تصميم شعار</option>
+          <option value="identity" data-i18n="s.identity">
+            هوية بصرية كاملة
+          </option>
+          <option value="rebrand" data-i18n="s.rebrand">تطوير هوية قائمة</option>
+          <option value="print" data-i18n="s.print">تصميم مطبوعات ودعاية</option>
+          <option value="social" data-i18n="s.social">
+            إدارة حسابات التواصل الاجتماعي (شهرياً)
+          </option>
+          <option value="motion" data-i18n="s.motion">مونتاج وموشن جرافيك</option>
+          <option value="signage" data-i18n="s.signage">لوحات ولافتات دعائية</option>
         </optgroup>
-        <optgroup label="أنظمة الإدارة والمحاسبة">
-          <option value="accounting">نظام محاسبة متكامل</option>
-          <option value="inventory">نظام مخزون ومبيعات ونقاط بيع</option>
-          <option value="resto">نظام إدارة مطاعم وكافيهات</option>
-          <option value="school">نظام إدارة مدارس</option>
-          <option value="pharmacy">نظام إدارة صيدليات</option>
-          <option value="clinic">نظام إدارة عيادات ومستشفيات</option>
-          <option value="hr">نظام موارد بشرية ورواتب</option>
+        <optgroup data-i18n-label="grp.systems" label="أنظمة الإدارة والمحاسبة">
+          <option value="accounting" data-i18n="s.accounting">
+            نظام محاسبة متكامل
+          </option>
+          <option value="inventory" data-i18n="s.inventory">
+            نظام مخزون ومبيعات ونقاط بيع
+          </option>
+          <option value="resto" data-i18n="s.resto">نظام إدارة مطاعم وكافيهات</option>
+          <option value="school" data-i18n="s.school">نظام إدارة مدارس</option>
+          <option value="pharmacy" data-i18n="s.pharmacy">نظام إدارة صيدليات</option>
+          <option value="clinic" data-i18n="s.clinic">
+            نظام إدارة عيادات ومستشفيات
+          </option>
+          <option value="hr" data-i18n="s.hr">نظام موارد بشرية ورواتب</option>
         </optgroup>
-        <optgroup label="المواقع والتطبيقات">
-          <option value="landing">صفحة هبوط / موقع تعريفي</option>
-          <option value="website">موقع إلكتروني متكامل</option>
-          <option value="store">متجر إلكتروني</option>
-          <option value="app">تطبيق موبايل (أندرويد + آيفون)</option>
-          <option value="dashboard">لوحة تحكم وربط API</option>
-          <option value="hosting">استضافة ودومين (سنوي)</option>
-          <option value="support">صيانة ودعم فني (سنوي)</option>
+        <optgroup data-i18n-label="grp.web" label="المواقع والتطبيقات">
+          <option value="landing" data-i18n="s.landing">صفحة هبوط / موقع تعريفي</option>
+          <option value="website" data-i18n="s.website">موقع إلكتروني متكامل</option>
+          <option value="store" data-i18n="s.store">متجر إلكتروني</option>
+          <option value="app" data-i18n="s.app">تطبيق موبايل (أندرويد + آيفون)</option>
+          <option value="dashboard" data-i18n="s.dashboard">لوحة تحكم وربط API</option>
+          <option value="hosting" data-i18n="s.hosting">استضافة ودومين (سنوي)</option>
+          <option value="support" data-i18n="s.support">صيانة ودعم فني (سنوي)</option>
         </optgroup>
-        <option value="other">خدمة أخرى (أكتب طلبك)</option>
+        <option value="other" data-i18n="s.other">خدمة أخرى (أكتب طلبك)</option>
       </select>
 
       <!-- حقل لكتابة خدمة غير موجودة في القائمة -->
       <input
         type="text"
         id="customService"
+        data-i18n-ph="ph.customService"
         placeholder="اكتب الخدمة التي تريدها"
         style="display: none"
-        onchange="updateService()"
       />
 
-      <label for="package">مستوى الباقة:</label>
+      <label for="package" data-i18n="label.package">مستوى الباقة:</label>
       <select id="package">
-        <option value="1">أساسية</option>
-        <option value="1.6">احترافية</option>
-        <option value="2.4">متكاملة (Premium)</option>
+        <option value="basic" data-i18n="p.basic">أساسية</option>
+        <option value="pro" data-i18n="p.pro">احترافية</option>
+        <option value="premium" data-i18n="p.premium">متكاملة (Premium)</option>
       </select>
 
-      <label for="kind">نوع النشاط</label>
+      <label for="kind" data-i18n="label.kind">نوع النشاط</label>
       <select id="kind" onchange="updateKind()">
-        <option>شركة</option>
-        <option>مؤسسة فردية</option>
-        <option>محل تجاري</option>
-        <option>مطعم أو كافيه</option>
-        <option>صيدلية</option>
-        <option>عيادة أو مستشفى</option>
-        <option>مدرسة أو مركز تدريب</option>
-        <option>مصنع</option>
-        <option>مزرعة</option>
-        <option>سوبر ماركت أو مول</option>
-        <option>بنك أو جهة مالية</option>
-        <option>القطاع الحكومي</option>
-        <option>منظمة</option>
-        <option value="other">نشاط آخر</option>
+        <option value="company" data-i18n="k.company">شركة</option>
+        <option value="sole" data-i18n="k.sole">مؤسسة فردية</option>
+        <option value="shop" data-i18n="k.shop">محل تجاري</option>
+        <option value="resto" data-i18n="k.resto">مطعم أو كافيه</option>
+        <option value="pharmacy" data-i18n="k.pharmacy">صيدلية</option>
+        <option value="clinic" data-i18n="k.clinic">عيادة أو مستشفى</option>
+        <option value="school" data-i18n="k.school">مدرسة أو مركز تدريب</option>
+        <option value="factory" data-i18n="k.factory">مصنع</option>
+        <option value="farm" data-i18n="k.farm">مزرعة</option>
+        <option value="market" data-i18n="k.market">سوبر ماركت أو مول</option>
+        <option value="bank" data-i18n="k.bank">بنك أو جهة مالية</option>
+        <option value="gov" data-i18n="k.gov">القطاع الحكومي</option>
+        <option value="ngo" data-i18n="k.ngo">منظمة</option>
+        <option value="other" data-i18n="k.other">نشاط آخر</option>
       </select>
 
       <!-- حقل لكتابة نوع نشاط غير موجود في القائمة -->
       <input
         type="text"
         id="customKind"
+        data-i18n-ph="ph.customKind"
         placeholder="اكتب نوع نشاطك"
         style="display: none"
       />
 
-      <label for="deliveryTime">زمن التنفيذ والتسليم:</label>
+      <label for="deliveryTime" data-i18n="label.delivery">
+        زمن التنفيذ والتسليم:
+      </label>
       <select id="deliveryTime">
-        <option value="ساعة">24ساعة</option>
-        <option value="ساعة">48ساعة</option>
-        <option value="3 أيام">3 أيام</option>
-        <option value="أسبوع">أسبوع</option>
-        <option value="أسبوعين">أسبوعين</option>
-        <option value="شهر">شهر</option>
-        <option value="شهرين">شهرين</option>
-        <option value="3 أشهر">3 أشهر</option>
-        <option value="حسب الاتفاق">حسب الاتفاق</option>
+        <option value="24h" data-i18n="d.24h">24 ساعة</option>
+        <option value="48h" data-i18n="d.48h">48 ساعة</option>
+        <option value="3d" data-i18n="d.3d">3 أيام</option>
+        <option value="1w" data-i18n="d.1w">أسبوع</option>
+        <option value="2w" data-i18n="d.2w">أسبوعين</option>
+        <option value="1m" data-i18n="d.1m">شهر</option>
+        <option value="2m" data-i18n="d.2m">شهرين</option>
+        <option value="3m" data-i18n="d.3m">3 أشهر</option>
+        <option value="agree" data-i18n="d.agree">حسب الاتفاق</option>
       </select>
 
       <div class="input-container">
         <input type="text" id="name" placeholder=" " />
-        <label for="name" class="placeholder">اسم العميل / الجهة</label>
+        <label for="name" class="placeholder" data-i18n="ph.name">
+          اسم العميل / الجهة
+        </label>
       </div>
 
       <div class="input-container">
         <input type="text" id="location" placeholder=" " />
-        <label for="location" class="placeholder">المدينة والعنوان</label>
+        <label for="location" class="placeholder" data-i18n="ph.location">
+          المدينة والعنوان
+        </label>
       </div>
 
       <div class="input-container">
         <input type="tel" id="phone" placeholder=" " />
-        <label for="phone" class="placeholder">رقم الهاتف / واتساب</label>
+        <label for="phone" class="placeholder" data-i18n="ph.phone">
+          رقم الهاتف / واتساب
+        </label>
       </div>
 
       <div class="input-container">
         <input type="text" id="notes" placeholder=" " />
-        <label for="notes" class="placeholder">تفاصيل إضافية (اختياري)</label>
+        <label for="notes" class="placeholder" data-i18n="ph.notes">
+          تفاصيل إضافية (اختياري)
+        </label>
       </div>
 
-      <button class="btn-check" onclick="submitOrder()">
+      <button class="btn-check" onclick="submitOrder()" data-i18n="btn.check">
         التأكد من البيانات
       </button>
 
       <div id="orderConfirmation" style="display: none">
-        <p>تم تسجيل طلبك ✓ <span class="ref-label">الرقم المرجعي:</span>
+        <p>
+          <span data-i18n="conf.saved">تم تسجيل طلبك ✓</span>
+          <span class="ref-label" data-i18n="conf.ref">الرقم المرجعي:</span>
           <span id="orderNumber"></span>
         </p>
       </div>
 
-      <button class="btn-send" id="orderButton">أرسل الطلب الآن</button>
+      <button class="btn-send" id="orderButton" data-i18n="btn.send">
+        أرسل الطلب الآن
+      </button>
 
       <!-- يظهر فقط إذا منع المتصفح فتح واتساب -->
       <div id="fallbackBox" style="display: none">
-        <p class="fallback-title">لم يفتح واتساب؟ انسخ طلبك وأرسله لنا:</p>
+        <p class="fallback-title" data-i18n="fb.title">
+          لم يفتح واتساب؟ انسخ طلبك وأرسله لنا:
+        </p>
         <textarea id="fallbackText" readonly rows="8"></textarea>
-        <button class="btn-copy" id="copyBtn">انسخ نص الطلب</button>
+        <button class="btn-copy" id="copyBtn" data-i18n="btn.copy">
+          انسخ نص الطلب
+        </button>
         <a id="waLink" class="wa-link" href="#" target="_blank" rel="noopener"
-          >فتح واتساب يدوياً</a
+          ><span data-i18n="fb.link">فتح واتساب يدوياً</span></a
         >
       </div>
 
