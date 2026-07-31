@@ -1,0 +1,477 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* ===== ألوان الهوية المستخرجة من الشعار ===== */
+:root {
+  --navy: #122549;
+  --navy-dark: #0c1a35;
+  --navy-soft: #1e3766;
+  --orange: #f68522;
+  --orange-dark: #d96f14;
+  --orange-soft: #fff1e2;
+  --line: #d7dde8;
+  --ink: #0c1a35;
+}
+
+body {
+  background: linear-gradient(135deg, #eef1f6, #d7dde8);
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-family: "Cairo", "Tajawal", sans-serif;
+  font-weight: bold;
+  font-style: normal;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 20px 0;
+  width: 100%;
+  color: var(--ink);
+  transition: none;
+}
+
+select {
+  background-color: #f4f7fb;
+  color: var(--navy);
+  border: 2px solid var(--navy);
+  border-radius: 8px;
+  padding: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: inherit;
+  width: 100%;
+  outline: none;
+  transition: 0.3s;
+}
+
+select:focus {
+  background-color: var(--orange-soft);
+  border-color: var(--orange);
+}
+
+.container {
+  background: #ffffff;
+  background-image: radial-gradient(
+      circle at 12% 6%,
+      rgba(246, 133, 34, 0.12),
+      transparent 45%
+    ),
+    radial-gradient(circle at 90% 0%, rgba(18, 37, 73, 0.1), transparent 40%);
+  background-repeat: no-repeat;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  border-radius: 14px;
+  border-top: 5px solid var(--orange);
+  box-shadow: 0 10px 30px rgba(18, 37, 73, 0.22);
+  text-align: center;
+  max-width: 420px;
+  width: 90%;
+  animation: fadeIn 0.5s ease-in-out;
+  animation-timing-function: ease-in-out;
+  will-change: transform;
+}
+
+#orderConfirmation {
+  font-size: 14px;
+  font-weight: bold;
+  color: var(--navy);
+  background: #f4f7fb;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 6px 12px;
+  margin-top: 6px;
+}
+
+#orderConfirmation p {
+  margin: 0;
+}
+
+.ref-label {
+  color: #7c879b;
+  font-weight: normal;
+}
+
+#orderNumber {
+  color: var(--orange-dark);
+  direction: ltr;
+  display: inline-block;
+  letter-spacing: 1px;
+}
+
+.logo {
+  width: 260px;
+  max-width: 92%;
+  margin-top: 10px;
+  animation: rotateLogo 3s ease-in-out infinite;
+}
+
+@keyframes rotateLogo {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.7;
+    will-change: transform;
+  }
+  50% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.9);
+    opacity: 0.7;
+  }
+}
+
+label {
+  display: block;
+  width: 100%;
+  text-align: right;
+  margin-top: 6px;
+}
+
+label[for="deliveryTime"] {
+  color: var(--ink);
+  font-weight: bold;
+  font-size: 20px;
+}
+label[for="service"],
+label[for="package"] {
+  color: var(--navy);
+  font-weight: bold;
+  font-size: 22px;
+}
+label[for="kind"] {
+  color: var(--navy);
+  font-family: "Cairo", sans-serif;
+  font-weight: bold;
+  font-size: 22px;
+}
+
+.input-container {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  margin-top: 18px; /* مساحة تخرج إليها التسمية فوق الصندوق */
+  margin-bottom: 12px;
+  direction: rtl;
+}
+
+input {
+  width: 100%;
+  height: 46px;
+  padding: 10px;
+  font-size: 16px; /* 16px يمنع تكبير الشاشة تلقائياً في iPhone عند الكتابة */
+  font-family: inherit;
+  border: 2px solid var(--line);
+  border-radius: 8px;
+  outline: none;
+  background: white;
+  text-align: right;
+  color: var(--ink);
+  position: relative;
+}
+
+input:focus {
+  border-color: var(--orange);
+}
+
+/* التسمية داخل الصندوق بلون رمادي قبل الكتابة */
+label.placeholder {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 12px;
+  color: #7c879b;
+  font-size: 15px;
+  font-weight: normal;
+  transition: top 0.25s ease, font-size 0.25s ease, color 0.25s ease;
+  pointer-events: none;
+  text-align: right;
+  width: auto;
+  max-width: 88%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin: 0;
+  background: transparent;
+  padding: 0;
+  z-index: 2;
+}
+
+/* التسمية تخرج فوق حدّ الصندوق وتتحول للبرتقالي عند الكتابة */
+input:focus + label.placeholder,
+input:not(:placeholder-shown) + label.placeholder {
+  top: -10px;
+  transform: none;
+  font-size: 13px;
+  font-weight: bold;
+  color: var(--orange-dark);
+  background: white;
+  padding: 0 6px;
+  border-radius: 4px;
+}
+
+.pulse {
+  animation: pulse 2.5s infinite;
+  font-family: "Tajawal", "Cairo", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  background-color: var(--orange);
+  border-radius: 20px;
+  padding: 6px 16px;
+  margin: 6px 0;
+}
+
+.moving-text {
+  font-family: "Cairo", sans-serif;
+  font-weight: bold;
+  font-style: normal;
+  letter-spacing: 2px;
+  background-color: var(--navy);
+  border-radius: 20px;
+  padding: 6px 18px;
+  margin: 4px 0;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.06);
+  }
+  100% {
+    transform: scale(1);
+    will-change: transform;
+  }
+}
+
+#kind {
+  background-color: var(--navy);
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  border: none;
+}
+
+select,
+input,
+button {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: all 0.3s ease-in-out;
+}
+
+button {
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  font-family: inherit;
+}
+
+.btn-check {
+  background: var(--navy);
+}
+.btn-check:hover {
+  background: var(--navy-soft);
+}
+
+.btn-send {
+  background: var(--orange);
+}
+.btn-send:hover {
+  background: var(--orange-dark);
+}
+
+button:focus-visible,
+select:focus-visible,
+input:focus-visible {
+  outline: 3px solid var(--orange);
+  outline-offset: 2px;
+}
+
+/* الجملة التحفيزية المتبدّلة */
+.teaser {
+  min-height: 62px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--navy);
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1.9;
+  margin: 14px 0 4px;
+  padding: 12px 14px;
+  width: 100%;
+  background: var(--orange-soft);
+  border-right: 5px solid var(--orange);
+  border-radius: 10px;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.teaser.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+    will-change: transform;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo,
+  .pulse,
+  .container {
+    animation: none !important;
+  }
+  .teaser {
+    transition: none;
+  }
+}
+
+/* للأجهزة المحمولة الأكبر (أقل من 768 بكسل) */
+@media (max-width: 768px) {
+  .container {
+    padding: 12px;
+    font-size: 16px;
+  }
+  .logo {
+    width: 215px;
+  }
+}
+
+/* للأجهزة المحمولة الصغيرة (أقل من 320 بكسل) */
+@media (max-width: 320px) {
+  .container {
+    padding: 8px;
+    font-size: 14px;
+  }
+  .logo {
+    width: 180px;
+  }
+}
+
+/* للأجهزة اللوحية (بين 768 و 1024 بكسل) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .container {
+    padding: 16px;
+    font-size: 18px;
+  }
+  .logo {
+    width: 255px;
+  }
+}
+
+/* للشاشات الأكبر (أكبر من 1200 بكسل) */
+@media (min-width: 1200px) {
+  .container {
+    padding: 22px;
+    font-size: 19px;
+  }
+  .logo {
+    width: 290px;
+  }
+}
+
+/* ===== سطر الثقة وأسماء الأنظمة ===== */
+.trust-line {
+  color: var(--navy);
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.9;
+  margin: 10px 0 6px;
+}
+
+.trust-line strong {
+  color: var(--orange-dark);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 14px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--line);
+  width: 100%;
+}
+
+.chips span {
+  font-size: 12px;
+  font-weight: bold;
+  color: var(--navy);
+  background: #f4f7fb;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 4px 10px;
+  white-space: nowrap;
+}
+
+/* ===== صندوق الخطة البديلة عند تعذّر فتح واتساب ===== */
+#fallbackBox {
+  width: 100%;
+  margin-top: 10px;
+  padding: 12px;
+  background: #f4f7fb;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+
+.fallback-title {
+  margin: 0 0 8px;
+  font-size: 14px;
+  color: var(--navy);
+}
+
+#fallbackText {
+  width: 100%;
+  font-family: inherit;
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--ink);
+  background: white;
+  border: 2px solid var(--line);
+  border-radius: 8px;
+  padding: 10px;
+  text-align: right;
+  resize: vertical;
+}
+
+.btn-copy {
+  background: var(--navy);
+}
+
+.btn-copy:hover {
+  background: var(--navy-soft);
+}
+
+.wa-link {
+  display: inline-block;
+  margin-top: 4px;
+  font-size: 14px;
+  font-weight: bold;
+  color: var(--orange-dark);
+  text-decoration: underline;
+}

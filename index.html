@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#122549" />
+    <meta
+      name="description"
+      content="شاشا تِك سوليوشنز — هويات بصرية كاملة، أنظمة إدارة ومحاسبة، مواقع وتطبيقات موبايل. أرسل طلبك في دقيقة واحدة."
+    />
+
+    <!-- ========= معاينة الرابط عند المشاركة =========
+         مهم: بعد رفع الموقع، استبدل https://YOUR-DOMAIN.com
+         بعنوان موقعك الحقيقي في السطور الثلاثة أدناه -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="ar_AR" />
+    <meta property="og:site_name" content="شاشا تِك سوليوشنز" />
+    <meta
+      property="og:title"
+      content="شاشا تِك سوليوشنز — فكرة تُصمَّم ونظام يُبنى"
+    />
+    <meta
+      property="og:description"
+      content="هويات بصرية كاملة • أنظمة إدارة ومحاسبة • مواقع وتطبيقات موبايل. أرسل طلبك في دقيقة واحدة."
+    />
+    <meta property="og:url" content="https://YOUR-DOMAIN.com/" />
+    <meta property="og:image" content="https://YOUR-DOMAIN.com/preview.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="شاشا تِك سوليوشنز — فكرة تُصمَّم ونظام يُبنى"
+    />
+    <meta
+      name="twitter:description"
+      content="هويات بصرية كاملة • أنظمة إدارة ومحاسبة • مواقع وتطبيقات موبايل."
+    />
+    <meta name="twitter:image" content="https://YOUR-DOMAIN.com/preview.png" />
+
+    <link rel="icon" href="favicon.png" type="image/png" />
+    <link rel="apple-touch-icon" href="favicon.png" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Tajawal:wght@500;700;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>طلب خدمة - شاشا تِك سوليوشنز</title>
+  </head>
+  <body>
+    <div class="container">
+      <img src="logo.png" alt="شعار شاشا تِك سوليوشنز" class="logo" />
+      <br />
+      <p
+        class="moving-text"
+        style="color: white; font-size: 22px; font-weight: bold"
+      >
+        SHASHA TECH SOLUTIONS
+      </p>
+      <br />
+      <h2 class="pulse" style="color: white; font-size: 26px">
+        "فكرة تُصمَّم ،،، ونظام يُبنى"
+      </h2>
+
+      <p class="trust-line">
+        أكثر من <strong>9 أنظمة</strong> تعمل الآن لدى عملائنا — وهويات بصرية
+        كاملة سلّمناها لشركات ومطاعم ومدارس وصيدليات
+      </p>
+      <div class="chips">
+        <span>RestoPro</span>
+        <span>EduGlobal</span>
+        <span>BeautyHub</span>
+        <span>دكّان</span>
+        <span>DELIVO</span>
+        <span>Shasha Parm Sys</span>
+        <span>PhoneHub</span>
+      </div>
+
+      <label for="service">الخدمة المطلوبة:</label>
+      <select id="service" onchange="updateService()">
+        <optgroup label="الهوية البصرية والدعاية">
+          <option value="logo">تصميم شعار</option>
+          <option value="identity">هوية بصرية كاملة</option>
+          <option value="rebrand">تطوير هوية قائمة</option>
+          <option value="print">تصميم مطبوعات ودعاية</option>
+          <option value="social">إدارة حسابات التواصل الاجتماعي (شهرياً)</option>
+          <option value="motion">مونتاج وموشن جرافيك</option>
+          <option value="signage">لوحات ولافتات دعائية</option>
+        </optgroup>
+        <optgroup label="أنظمة الإدارة والمحاسبة">
+          <option value="accounting">نظام محاسبة متكامل</option>
+          <option value="inventory">نظام مخزون ومبيعات ونقاط بيع</option>
+          <option value="resto">نظام إدارة مطاعم وكافيهات</option>
+          <option value="school">نظام إدارة مدارس</option>
+          <option value="pharmacy">نظام إدارة صيدليات</option>
+          <option value="clinic">نظام إدارة عيادات ومستشفيات</option>
+          <option value="hr">نظام موارد بشرية ورواتب</option>
+        </optgroup>
+        <optgroup label="المواقع والتطبيقات">
+          <option value="landing">صفحة هبوط / موقع تعريفي</option>
+          <option value="website">موقع إلكتروني متكامل</option>
+          <option value="store">متجر إلكتروني</option>
+          <option value="app">تطبيق موبايل (أندرويد + آيفون)</option>
+          <option value="dashboard">لوحة تحكم وربط API</option>
+          <option value="hosting">استضافة ودومين (سنوي)</option>
+          <option value="support">صيانة ودعم فني (سنوي)</option>
+        </optgroup>
+        <option value="other">خدمة أخرى (أكتب طلبك)</option>
+      </select>
+
+      <!-- حقل لكتابة خدمة غير موجودة في القائمة -->
+      <input
+        type="text"
+        id="customService"
+        placeholder="اكتب الخدمة التي تريدها"
+        style="display: none"
+        onchange="updateService()"
+      />
+
+      <label for="package">مستوى الباقة:</label>
+      <select id="package">
+        <option value="1">أساسية</option>
+        <option value="1.6">احترافية</option>
+        <option value="2.4">متكاملة (Premium)</option>
+      </select>
+
+      <label for="kind">نوع النشاط</label>
+      <select id="kind" onchange="updateKind()">
+        <option>شركة</option>
+        <option>مؤسسة فردية</option>
+        <option>محل تجاري</option>
+        <option>مطعم أو كافيه</option>
+        <option>صيدلية</option>
+        <option>عيادة أو مستشفى</option>
+        <option>مدرسة أو مركز تدريب</option>
+        <option>مصنع</option>
+        <option>مزرعة</option>
+        <option>سوبر ماركت أو مول</option>
+        <option>بنك أو جهة مالية</option>
+        <option>القطاع الحكومي</option>
+        <option>منظمة</option>
+        <option value="other">نشاط آخر</option>
+      </select>
+
+      <!-- حقل لكتابة نوع نشاط غير موجود في القائمة -->
+      <input
+        type="text"
+        id="customKind"
+        placeholder="اكتب نوع نشاطك"
+        style="display: none"
+      />
+
+      <label for="deliveryTime">زمن التنفيذ والتسليم:</label>
+      <select id="deliveryTime">
+        <option value="ساعة">24ساعة</option>
+        <option value="ساعة">48ساعة</option>
+        <option value="3 أيام">3 أيام</option>
+        <option value="أسبوع">أسبوع</option>
+        <option value="أسبوعين">أسبوعين</option>
+        <option value="شهر">شهر</option>
+        <option value="شهرين">شهرين</option>
+        <option value="3 أشهر">3 أشهر</option>
+        <option value="حسب الاتفاق">حسب الاتفاق</option>
+      </select>
+
+      <div class="input-container">
+        <input type="text" id="name" placeholder=" " />
+        <label for="name" class="placeholder">اسم العميل / الجهة</label>
+      </div>
+
+      <div class="input-container">
+        <input type="text" id="location" placeholder=" " />
+        <label for="location" class="placeholder">المدينة والعنوان</label>
+      </div>
+
+      <div class="input-container">
+        <input type="tel" id="phone" placeholder=" " />
+        <label for="phone" class="placeholder">رقم الهاتف / واتساب</label>
+      </div>
+
+      <div class="input-container">
+        <input type="text" id="notes" placeholder=" " />
+        <label for="notes" class="placeholder">تفاصيل إضافية (اختياري)</label>
+      </div>
+
+      <button class="btn-check" onclick="submitOrder()">
+        التأكد من البيانات
+      </button>
+
+      <div id="orderConfirmation" style="display: none">
+        <p>تم تسجيل طلبك ✓ <span class="ref-label">الرقم المرجعي:</span>
+          <span id="orderNumber"></span>
+        </p>
+      </div>
+
+      <button class="btn-send" id="orderButton">أرسل الطلب الآن</button>
+
+      <!-- يظهر فقط إذا منع المتصفح فتح واتساب -->
+      <div id="fallbackBox" style="display: none">
+        <p class="fallback-title">لم يفتح واتساب؟ انسخ طلبك وأرسله لنا:</p>
+        <textarea id="fallbackText" readonly rows="8"></textarea>
+        <button class="btn-copy" id="copyBtn">انسخ نص الطلب</button>
+        <a id="waLink" class="wa-link" href="#" target="_blank" rel="noopener"
+          >فتح واتساب يدوياً</a
+        >
+      </div>
+
+      <p class="teaser" id="teaser"></p>
+      <br />
+      <script src="script.js"></script>
+    </div>
+  </body>
+</html>
