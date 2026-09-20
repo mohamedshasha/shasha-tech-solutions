@@ -84,6 +84,10 @@ const I18N = {
     "conf.saved": "تم تسجيل طلبك ✓",
     "conf.ref": "الرقم المرجعي:",
 
+    "btn.install": "ثبّت التطبيق على هاتفك",
+    "btn.installed": "تم تثبيت التطبيق ✓",
+    "ios.hint":
+      'لتثبيت التطبيق على آيفون: اضغط زر المشاركة ⬆️ ثم "إضافة إلى الشاشة الرئيسية"',
     "fb.title": "لم يفتح واتساب؟ انسخ طلبك وأرسله لنا:",
     "btn.copy": "انسخ نص الطلب",
     "btn.copied": "تم النسخ ✓",
@@ -186,6 +190,10 @@ const I18N = {
     "conf.saved": "Request saved ✓",
     "conf.ref": "Reference:",
 
+    "btn.install": "Install this app on your phone",
+    "btn.installed": "App installed ✓",
+    "ios.hint":
+      'To install on iPhone: tap the Share button ⬆️ then "Add to Home Screen"',
     "fb.title": "WhatsApp didn't open? Copy your request and send it to us:",
     "btn.copy": "Copy request text",
     "btn.copied": "Copied ✓",
@@ -506,4 +514,69 @@ document.addEventListener("DOMContentLoaded", function () {
 
     sendWhatsAppNotification(o);
   });
+});
+
+/* =========================================================
+   تثبيت التطبيق على شاشة الهاتف (PWA)
+   ========================================================= */
+
+/* تسجيل الـ Service Worker ليعمل التطبيق بدون إنترنت */
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("sw.js").catch(() => {
+      /* يفشل التسجيل عند فتح الملف محلياً بـ file:// وهذا طبيعي */
+    });
+  });
+}
+
+let deferredPrompt = null;
+
+/* أندرويد وكروم: المتصفح يخبرنا أن التطبيق قابل للتثبيت */
+window.addEventListener("beforeinstallprompt", (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+  let btn = document.getElementById("installBtn");
+  if (btn) btn.style.display = "block";
+});
+
+/* بعد اكتمال التثبيت */
+window.addEventListener("appinstalled", () => {
+  deferredPrompt = null;
+  let btn = document.getElementById("installBtn");
+  if (btn) {
+    btn.textContent = t("btn.installed");
+    setTimeout(() => (btn.style.display = "none"), 2500);
+  }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  let btn = document.getElementById("installBtn");
+  let hint = document.getElementById("iosHint");
+
+  // هل يعمل التطبيق مثبّتاً بالفعل؟ عندها لا داعي لأي زر
+  let standalone =
+    window.matchMedia("(display-mode: standalone)").matches ||
+    window.navigator.standalone === true;
+
+  // أجهزة أبل لا تدعم التثبيت التلقائي، فنعرض لها الإرشادات
+  let isIOS =
+    /iphone|ipad|ipod/i.test(navigator.userAgent) ||
+    (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+
+  if (standalone) {
+    if (btn) btn.style.display = "none";
+    if (hint) hint.style.display = "none";
+  } else if (isIOS && hint) {
+    hint.style.display = "block";
+  }
+
+  if (btn) {
+    btn.addEventListener("click", async () => {
+      if (!deferredPrompt) return;
+      deferredPrompt.prompt();
+      await deferredPrompt.userChoice;
+      deferredPrompt = null;
+      btn.style.display = "none";
+    });
+  }
 });

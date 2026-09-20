@@ -535,3 +535,31 @@ input:focus-visible {
 [dir="ltr"] .moving-text {
   letter-spacing: 1px;
 }
+
+/* ===== زر تثبيت التطبيق على الهاتف ===== */
+.btn-install {
+  margin-top: 6px;
+  background: transparent;
+  color: var(--navy);
+  border: 2px dashed var(--orange);
+  font-size: 16px;
+}
+
+.btn-install:hover {
+  color: white;
+  background: var(--orange);
+  border-style: solid;
+}
+
+.ios-hint {
+  margin: 8px 0 0;
+  padding: 10px 12px;
+  width: 100%;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 1.9;
+  color: var(--navy);
+  background: #f4f7fb;
+  border: 1px dashed var(--line);
+  border-radius: 10px;
+}

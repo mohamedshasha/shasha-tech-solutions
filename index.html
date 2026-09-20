@@ -50,7 +50,15 @@
     />
 
     <link rel="icon" href="favicon.png" type="image/png" />
-    <link rel="apple-touch-icon" href="favicon.png" />
+
+    <!-- ========= تثبيت التطبيق على شاشة الهاتف ========= -->
+    <link rel="manifest" href="manifest.json" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="شاشا تِك" />
+    <meta name="application-name" content="شاشا تِك" />
 
     <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -252,6 +260,26 @@
       </div>
 
       <p class="teaser" id="teaser"></p>
+
+      <!-- زر تثبيت التطبيق — يظهر فقط إذا كان الجهاز يدعم التثبيت -->
+      <button
+        type="button"
+        id="installBtn"
+        class="btn-install"
+        style="display: none"
+        data-i18n="btn.install"
+      >
+        ثبّت التطبيق على هاتفك
+      </button>
+
+      <!-- إرشادات آيفون — تظهر فقط على أجهزة أبل -->
+      <p class="ios-hint" id="iosHint" style="display: none">
+        <span data-i18n="ios.hint">
+          لتثبيت التطبيق على آيفون: اضغط زر المشاركة ⬆️ ثم "إضافة إلى الشاشة
+          الرئيسية"
+        </span>
+      </p>
+
       <br />
       <script src="script.js"></script>
     </div>
